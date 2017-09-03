@@ -1,0 +1,24 @@
+{
+  "name": "Youtube Keyboard Shortcuts",
+  "version": "0.1",
+  "manifest_version": 2,
+  "description": "Youtube Keyboard Shortcuts",
+  "content_scripts": [
+    {
+      "matches": [
+        "http://www.youtube.com/*",
+        "https://www.youtube.com/*"
+      ],
+      "js": ["script.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "permissions": [
+  ],
+  "icons": {
+    "16": "FullSizeRender16.png",
+    "48": "FullSizeRender48.png",
+    "128": "FullSizeRender.png"
+  }
+}
+
