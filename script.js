@@ -1,32 +1,23 @@
 var shelf = document.querySelectorAll('div#dismissable.ytd-shelf-renderer.style-scope');
 console.log(shelf[0]);
-var videos = shelf[0].querySelectorAll('h3.style-scope.ytd-grid-video-renderer');
-console.log(videos);
-videos.forEach(function(element, index){
-  var p = document.createElement('p');
-  var linkkey = index +1 ;
-  p.innerText= 'hi limin, please press (' + linkkey + ')' ;
-  element.prepend(p);
-  key(linkkey.toString(), function(ev){
-    console.log(element);
-    var a = element.querySelectorAll('a')[0];
-    console.log(a);
-    a.click();
-    ev.stopPropagation();
-    ev.preventDefault();
-  });
-})
+map_key_for_shelf(shelf[0]);
 // redirect the focus to youtube logo but not the search blank.
 var icon = document.querySelectorAll('input#search')[0];
-console.log(icon);
 icon.blur();
-//shelf.forEach(function(element){
-//  var videos =
-//  element.querySelectorAll('h3.style-scope.ytd-grid-video-renderer');
-//  videos.forEach(function(element, index){
-//    var p = document.createElement('p');
-//    p.innerText= 'hi limin, please press (' + index + ')' ;
-//    element.prepend(p);
-//  });
-//});
-
+var shelf_id = 0;
+key('j', function(ev){
+  if (shelf_id + 1 < shelf.length){
+    remove_key_from_shelf( shelf[shelf_id] );
+    map_key_for_shelf(shelf[shelf_id + 1]);
+    shelf_id = shelf_id + 1;
+  }else{
+    shelf = document.querySelectorAll('div#dismissable.ytd-shelf-renderer.style-scope');
+  }
+});
+key('k', function(ev){
+  if (shelf_id - 1 >= 0){
+    remove_key_from_shelf( shelf[shelf_id] );
+    map_key_for_shelf(shelf[shelf_id - 1]);
+    shelf_id = shelf_id - 1;
+  }
+});
