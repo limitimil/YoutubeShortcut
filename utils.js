@@ -3,6 +3,9 @@ map_key_for_shelf = function(shelf){
   videos.forEach(function(element, index){
     var p = document.createElement('p');
     var linkkey = index +1 ;
+		if (linkkey > 9){
+			return;
+		}
     p.innerText= 'hi limin, please press (' + linkkey + ')' ;
     p.className = 'hi-limin';
     element.prepend(p);
