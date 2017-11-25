@@ -9,7 +9,7 @@
         "http://www.youtube.com/*",
         "https://www.youtube.com/*"
       ],
-      "js": ["jquery-1.7.2.min.js","keymaster.min.js","utils.js","script.js"],
+      "js": ["jquery-1.7.2.min.js","thirdparty/keymaster/keymaster.js","utils.js","script.js"],
       "css": ["my.css"],
       "run_at": "document_idle"
     }

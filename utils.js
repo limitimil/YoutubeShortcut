@@ -9,11 +9,11 @@ map_key_for_shelf = function(shelf){
     p.innerText= 'hi limin, please press (' + linkkey + ')' ;
     p.className = 'hi-limin';
     element.prepend(p);
-    key(linkkey.toString(), function(ev){
-      console.log(element);
+    key(linkkey.toString(), 'all',function(ev){
       var a = element.querySelectorAll('a')[0];
       console.log(a);
       a.click();
+			unbind_all();
       ev.stopPropagation();
       ev.preventDefault();
     });
@@ -25,6 +25,11 @@ remove_key_from_shelf= function(shelf){
   ps.forEach(function(element, index){
     var linkkey = index;
     element.remove();
-    //key.unbind(linkkey.toString());
+    key.unbind(linkkey.toString());
   });
+}
+unbind_all=function(){
+	for(var i=1; i<10; i++){
+		key.unbind(i.toString(),'all');
+	}
 }
