@@ -6,7 +6,7 @@ map_key_for_shelf = function(shelf){
 		if (linkkey > 9){
 			return;
 		}
-    p.innerText= 'hi limin, please press (' + linkkey + ')' ;
+    p.innerText= 'hi, please press (' + linkkey + ')' ;
     p.className = 'hi-limin';
     element.prepend(p);
     key(linkkey.toString(), 'all',function(ev){
