@@ -54,3 +54,8 @@ key('r','all', function(ev){
 	ev.stopPropagation();
 	ev.preventDefault();
 });
+key('C','all', function(ev){
+	unbind_all();
+	ev.stopPropagation();
+	ev.preventDefault();
+});
