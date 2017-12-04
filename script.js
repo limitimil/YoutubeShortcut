@@ -20,7 +20,7 @@ try {
 var icon = document.querySelectorAll('input#search')[0];
 icon.blur();
 var shelf_id = 0;
-key('j','all', function(ev){
+key(']','all', function(ev){
   if (shelf_id + 1 < shelf.length){
     remove_key_from_shelf( shelf[shelf_id] );
     map_key_for_shelf(shelf[shelf_id + 1]);
@@ -31,7 +31,7 @@ key('j','all', function(ev){
 	ev.stopPropagation();
 	ev.preventDefault();
 });
-key('k','all', function(ev){
+key('[','all', function(ev){
   if (shelf_id - 1 >= 0){
     remove_key_from_shelf( shelf[shelf_id] );
     map_key_for_shelf(shelf[shelf_id - 1]);
