@@ -10,8 +10,8 @@ Keyboard Shortcuts for Youtube Search
 * `h` : Back to main page(<https://www.youtube.com/>)
 
 ## In the main page of youtube(<https://www.youtube.com/>)
-* `j`: Select next result
-* `k`: Select previous result
+* `'`: Select next result
+* `;`: Select previous result
 * `0~9` : Go to the video.
 * `r` : Refresh the cursor(sometimes the cursor is broken)
 
