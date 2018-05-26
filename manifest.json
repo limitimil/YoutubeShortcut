@@ -9,13 +9,25 @@
         "http://www.youtube.com/*",
         "https://www.youtube.com/*"
       ],
-      "js": ["jquery-1.7.2.min.js","thirdparty/keymaster/keymaster.js","utils.js","script.js"],
+      "js": [
+				"jquery-1.7.2.min.js",
+				"thirdparty/keymaster/keymaster.js",
+				"utils.js",
+				"script.js",
+				"message.js"],
       "css": ["my.css"],
       "run_at": "document_idle"
     }
   ],
   "permissions": [
+		"contextMenus"
   ],
+	"background":{
+		"scripts": [
+			"URI.min.js",
+			"menu.js"],
+		"persistant": false
+	},
   "icons": {
     "16": "16.png",
     "48": "48.png",
