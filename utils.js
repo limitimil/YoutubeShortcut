@@ -13,9 +13,9 @@ pop_counter = function(){
 }
 select_video = function(dom){
   if (selected_video_dom){
-    selected_video_dom.style['background-color'] = 'inherit';
+    selected_video_dom.style['outline'] = 'inherit';
   } 
-  dom.style['background-color'] = 'yellow';
+  dom.style['outline'] = '1px solid yellow';
   selected_video_dom = dom;
   scroll_window(dom);
 }
