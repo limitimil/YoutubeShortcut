@@ -1,18 +1,11 @@
 var reset = function(){
-	try{
-		remove_key_from_shelf( shelf[shelf_id] );
-	}catch(err){
-		console.log(err)
-	}
 	shelf_id = 0;
-	shelf = document.querySelectorAll('div#dismissable.ytd-shelf-renderer.style-scope');
-	map_key_for_shelf(shelf[shelf_id]);
+	select_video(shelf[shelf_id]);
 }
 try {
-	var shelf = document.querySelectorAll('div#dismissable.ytd-shelf-renderer.style-scope');
+	var shelf = document.querySelectorAll('ytd-rich-item-renderer');
 	var logo = $('div#logo-icon-container');
-	console.log(shelf[0]);
-	map_key_for_shelf(shelf[0]);
+	select_video(shelf[0]);
 }catch(err){
 	console.log(err)
 }
@@ -22,20 +15,16 @@ icon.blur();
 var shelf_id = 0;
 key('\'','all', function(ev){
   if (shelf_id + 1 < shelf.length){
-    remove_key_from_shelf( shelf[shelf_id] );
-    map_key_for_shelf(shelf[shelf_id + 1]);
-    shelf_id = shelf_id + 1;
-  }else{
-    shelf = document.querySelectorAll('div#dismissable.ytd-shelf-renderer.style-scope');
-  }
+		shelf_id = shelf_id + 1;
+		select_video(shelf[shelf_id]);
+	}
 	ev.stopPropagation();
 	ev.preventDefault();
 });
 key(';','all', function(ev){
   if (shelf_id - 1 >= 0){
-    remove_key_from_shelf( shelf[shelf_id] );
-    map_key_for_shelf(shelf[shelf_id - 1]);
     shelf_id = shelf_id - 1;
+		select_video(shelf[shelf_id]);
   }
 	ev.stopPropagation();
 	ev.preventDefault();
