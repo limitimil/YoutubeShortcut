@@ -68,10 +68,15 @@ key('C','all', function(ev){
 	ev.stopPropagation();
 	ev.preventDefault();
 });
+key('enter', 'all', function(ev){
+	if (shelf[shelf_id]){
+		shelf[shelf_id].querySelector('ytd-thumbnail a').click();
+	}
+	ev.stopPropagation();
+	ev.preventDefault();
+});
 key('0, 1, 2, 3, 4, 5, 6, 7, 8, 9', 'all', function(ev){
 	push_counter(ev.key);
-	console.log(_counter);
-	console.log(selected_video_dom);
 	ev.stopPropagation();
 	ev.preventDefault();
 });
