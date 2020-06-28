@@ -30,14 +30,20 @@ var icon = document.querySelectorAll('input#search')[0];
 icon.blur();
 var shelf_id = 0;
 key('\'','all', function(ev){
-	let next = shift_shelf_id(1);
+	let counter = pop_counter();
+	let next = shift_shelf_id(
+		counter === 0? 1: counter
+	);
 	shelf_id = next;
 	select_video(shelf[shelf_id]);
 	ev.stopPropagation();
 	ev.preventDefault();
 });
 key(';','all', function(ev){
-	let next = shift_shelf_id(-1);
+	let counter = pop_counter();
+	let next = shift_shelf_id(
+		counter === 0? -1: -1 * counter
+	);
 	shelf_id = next;
 	select_video(shelf[shelf_id]);
 	ev.stopPropagation();
@@ -59,6 +65,13 @@ key('r','all', function(ev){
 });
 key('C','all', function(ev){
 	unbind_all();
+	ev.stopPropagation();
+	ev.preventDefault();
+});
+key('0, 1, 2, 3, 4, 5, 6, 7, 8, 9', 'all', function(ev){
+	push_counter(ev.key);
+	console.log(_counter);
+	console.log(selected_video_dom);
 	ev.stopPropagation();
 	ev.preventDefault();
 });

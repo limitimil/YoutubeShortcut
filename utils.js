@@ -1,8 +1,16 @@
-counter = ""
+_counter = ""
 selected_video_dom = undefined;
 push_counter = function(key){
-  counter = counter + key;
+  _counter = _counter + key;
 };
+pop_counter = function(){
+  if (_counter === ''){
+    return 0;
+  }
+  let result = parseInt(_counter);
+  _counter = '';
+  return result
+}
 select_video = function(dom){
   if (selected_video_dom){
     selected_video_dom.style['background-color'] = 'inherit';
