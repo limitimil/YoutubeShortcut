@@ -1,3 +1,19 @@
+var shift_shelf_id = function(distance){
+	const unit_offset = distance > 0 ? 1: -1;
+	let next_shelf_id = shelf_id + distance;
+	while (shelf[next_shelf_id]){
+    if( window.getComputedStyle(shelf[next_shelf_id]).display === 'none'){
+			next_shelf_id = next_shelf_id + unit_offset;
+			continue;
+		}
+		break;
+	}
+	if(shelf[next_shelf_id]){
+		return next_shelf_id;
+	}else {
+		return shelf_id;
+	}
+}
 var reset = function(){
 	shelf_id = 0;
 	select_video(shelf[shelf_id]);
@@ -14,18 +30,16 @@ var icon = document.querySelectorAll('input#search')[0];
 icon.blur();
 var shelf_id = 0;
 key('\'','all', function(ev){
-  if (shelf_id + 1 < shelf.length){
-		shelf_id = shelf_id + 1;
-		select_video(shelf[shelf_id]);
-	}
+	let next = shift_shelf_id(1);
+	shelf_id = next;
+	select_video(shelf[shelf_id]);
 	ev.stopPropagation();
 	ev.preventDefault();
 });
 key(';','all', function(ev){
-  if (shelf_id - 1 >= 0){
-    shelf_id = shelf_id - 1;
-		select_video(shelf[shelf_id]);
-  }
+	let next = shift_shelf_id(-1);
+	shelf_id = next;
+	select_video(shelf[shelf_id]);
 	ev.stopPropagation();
 	ev.preventDefault();
 });
