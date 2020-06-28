@@ -9,9 +9,9 @@ select_video = function(dom){
   } 
   dom.style['background-color'] = 'yellow';
   selected_video_dom = dom;
-  _scroll_window(dom);
+  scroll_window(dom);
 }
-function _scroll_window(obj){
+function scroll_window(obj){
   $('html, body').animate({
     scrollTop: obj.offsetTop - $(window).height()/2,
     scrollLeft: obj.offsetLeft
