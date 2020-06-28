@@ -1,3 +1,22 @@
+counter = ""
+selected_video_dom = undefined;
+push_counter = function(key){
+  counter = counter + key;
+};
+select_video = function(dom){
+  if (selected_video_dom){
+    selected_video_dom.style['background-color'] = 'inherit';
+  } 
+  dom.style['background-color'] = 'yellow';
+  selected_video_dom = dom;
+  _scroll_window(dom);
+}
+function _scroll_window(obj){
+  $('html, body').animate({
+    scrollTop: obj.offsetTop - $(window).height()/2,
+    scrollLeft: obj.offsetLeft
+  });
+}
 map_key_for_shelf = function(shelf){
   var videos = shelf.querySelectorAll('h3.style-scope.ytd-grid-video-renderer');
   videos.forEach(function(element, index){
