@@ -20,7 +20,7 @@ var reset = function(){
 }
 try {
 	var shelf = document.querySelectorAll('ytd-rich-item-renderer');
-	var logo = $('div#logo-icon-container');
+	var logo = $('yt-icon#logo-icon');
 	select_video(shelf[0]);
 }catch(err){
 	console.log(err)
